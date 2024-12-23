@@ -28,27 +28,27 @@
 
     <script>
         // Function to check if the user came from the Linkvertise URL
-        function checkReferrer() {
-            const linkvertiseUrl = "https://linkvertise.com/114723/first-checkpoint?o=sharing"; // Linkvertise URL
+        function checkLinkvertise() {
+            // Get the current URL query parameters
+            const urlParams = new URLSearchParams(window.location.search);
+            const referrer = document.referrer;
 
-            // Check if the referrer is the specific Linkvertise URL or if sessionStorage is set
-            if (document.referrer === linkvertiseUrl || sessionStorage.getItem('cameFromLinkvertise') === 'true') {
+            // Check if the user came from the specific Linkvertise URL
+            if (referrer.includes('linkvertise.com') && urlParams.has('o') && urlParams.get('o') === 'sharing') {
+                sessionStorage.setItem('cameFromLinkvertise', 'true');
                 return true;
             }
 
-            // If not from Linkvertise, return false
             return false;
         }
 
         // Store the referrer in sessionStorage if the user is coming from Linkvertise
         window.onload = function() {
-            if (document.referrer === "https://linkvertise.com/114723/first-checkpoint?o=sharing") {
-                sessionStorage.setItem('cameFromLinkvertise', 'true');
-            }
-
-            // If not coming from Linkvertise, redirect to the main page
-            if (!checkReferrer()) {
-                window.location.replace('https://www.sylphx.site');
+            if (!sessionStorage.getItem('cameFromLinkvertise')) {
+                if (!checkLinkvertise()) {
+                    // Redirect to the main page if not from Linkvertise
+                    window.location.replace('https://www.sylphx.site');
+                }
             }
         };
     </script>
