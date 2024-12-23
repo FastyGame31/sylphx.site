@@ -27,44 +27,27 @@
     </div>
 
     <script>
-        // Debugging function to log the referrer and sessionStorage
-        function debugInfo() {
-            console.log("Referrer: " + document.referrer);
-            console.log("SessionStorage 'cameFromLinkvertise': " + sessionStorage.getItem('cameFromLinkvertise'));
-        }
-
         // Function to check if the user came from the Linkvertise URL
         function checkLinkvertise() {
-            const urlParams = new URLSearchParams(window.location.search);
-            const referrer = document.referrer;
+            const linkvertiseUrl = "https://linkvertise.com/114723/first-checkpoint?o=sharing"; // Linkvertise URL
 
-            console.log("Checking Linkvertise...");
-
-            // Check if the user came from the specific Linkvertise URL
-            if (referrer.includes('linkvertise.com') && urlParams.has('o') && urlParams.get('o') === 'sharing') {
-                console.log("Linkvertise detected!");
-                sessionStorage.setItem('cameFromLinkvertise', 'true');
+            // Check if the referrer is the specific Linkvertise URL or if sessionStorage is set
+            if (document.referrer === linkvertiseUrl || sessionStorage.getItem('cameFromLinkvertise')) {
                 return true;
             }
 
-            console.log("Linkvertise not detected.");
             return false;
+        }
+
+        // If not from the Linkvertise link, redirect to the main page
+        if (!checkLinkvertise()) {
+            window.location.replace('https://www.sylphx.site');
         }
 
         // Store the referrer in sessionStorage if the user is coming from Linkvertise
         window.onload = function() {
-            debugInfo(); // Log initial information
-
-            if (!sessionStorage.getItem('cameFromLinkvertise')) {
-                if (!checkLinkvertise()) {
-                    // Redirect to the main page if not from Linkvertise
-                    console.log("Redirecting to main page...");
-                    window.location.replace('https://www.sylphx.site');
-                } else {
-                    console.log("User is from Linkvertise, staying on the checkpoint.");
-                }
-            } else {
-                console.log("SessionStorage already set to 'cameFromLinkvertise'.");
+            if (document.referrer === "https://linkvertise.com/114723/first-checkpoint?o=sharing") {
+                sessionStorage.setItem('cameFromLinkvertise', 'true');
             }
         };
     </script>
