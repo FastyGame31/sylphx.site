@@ -1,11 +1,8 @@
 <script>
     // Function to check if the user came from the Linkvertise URL
     function checkReferrer() {
-        const urlParams = new URLSearchParams(window.location.search);
-        const referrer = urlParams.get('ref'); // Get the 'ref' parameter
-
-        // Check if the ref parameter is 'linkvertise' or if sessionStorage is set
-        if (referrer === 'linkvertise' || sessionStorage.getItem('cameFromLinkvertise')) {
+        // Check if sessionStorage contains the flag indicating the user came from Linkvertise
+        if (sessionStorage.getItem('cameFromLinkvertise')) {
             return true;
         }
 
@@ -15,21 +12,13 @@
 
     // If not from the Linkvertise link, redirect to the main page
     if (!checkReferrer()) {
-        window.location.replace('https://www.sylphx.site');
+        window.location.replace('https://www.sylphx.site'); // Redirect to the main page
     }
 
     // Timer to redirect after 5 minutes (300 seconds)
     setTimeout(function() {
         window.location.replace('https://www.sylphx.site'); // Force redirect to the main page
     }, 300000); // 5 minutes in milliseconds
-
-    // Store the referrer in sessionStorage if the user is coming from Linkvertise
-    window.onload = function() {
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('ref') === 'linkvertise') {
-            sessionStorage.setItem('cameFromLinkvertise', 'true');
-        }
-    };
 
     // Ensure redirect even if the user refreshes or navigates away
     window.addEventListener('beforeunload', function(event) {
