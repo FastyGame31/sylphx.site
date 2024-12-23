@@ -27,9 +27,12 @@
     </div>
 
     <script>
-        // Check if the page is being accessed directly (not from the Linkvertise link)
-        if (document.referrer !== 'https://linkvertise.com/114723/first-checkpoint?o=sharing') {
-            // Redirect to the main page if not coming from the Linkvertise link
+        // Check if the page is being accessed directly or from the correct Linkvertise link
+        const referrer = document.referrer;
+        const expectedReferrer = 'https://linkvertise.com/114723/first-checkpoint?o=sharing';
+
+        if (referrer !== expectedReferrer) {
+            // Redirect to the main page if not coming from the expected Linkvertise link
             window.location.replace('https://www.sylphx.site');
         }
 
@@ -39,4 +42,10 @@
         }, 300000); // 5 minutes in milliseconds
 
         // Ensure redirect even if the user refreshes or navigates away
-        window.addEventListener('beforeunload', fun
+        window.addEventListener('beforeunload', function(event) {
+            event.preventDefault(); // Cancel the default action
+            window.location.replace('https://www.sylphx.site'); // Force redirect
+        });
+    </script>
+</body>
+</html>
