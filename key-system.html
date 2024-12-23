@@ -26,10 +26,15 @@
     </div>
 
     <script>
-        // Check if the user has completed the Linkvertise process
-        const urlParams = new URLSearchParams(window.location.search);
-        if (!urlParams.has('completed') || urlParams.get('completed') !== 'true') {
-            // Redirect the user back to the main page if they haven't completed the Linkvertise process
+        // Check if the user came from Linkvertise
+        const referrer = document.referrer;
+        const linkvertisePattern = "linkvertise.com"; // Part of the Linkvertise URL
+
+        // If the referrer is from Linkvertise, allow access to the page
+        if (referrer.includes(linkvertisePattern)) {
+            console.log("User came from Linkvertise, allowing access.");
+        } else {
+            // Redirect back to the main page if not from Linkvertise
             window.location.href = '/';
         }
     </script>
