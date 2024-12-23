@@ -6,67 +6,110 @@
     font-family: Arial, sans-serif;
 }
 
-/* Body for Key System Page */
-.key-system-body {
-    background-color: #2c2f38;
-    color: #fff;
+/* Key System Page Styles */
+body.key-system {
+    background-color: #1e1e1e;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    flex-direction: column;
     text-align: center;
     padding: 20px;
 }
 
-/* Header for Key System Page */
-.key-system-header h1 {
-    font-size: 2.5rem;
+/* Header */
+.key-system .header {
+    margin-bottom: 20px;
+}
+
+.key-system .header h1 {
+    font-size: 3rem;
+    color: #fff;
     margin-bottom: 10px;
 }
 
-/* Key System Checkpoint Panel */
-.key-system-checkpoint-panel {
-    background-color: rgba(0, 0, 0, 0.8);
+.key-system .header img {
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+/* Checkpoint Panel */
+.key-system .checkpoint-panel {
+    background-color: rgba(0, 0, 0, 0.6); /* Dark gray background */
     padding: 30px;
     border-radius: 10px;
     width: 100%;
     max-width: 600px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
     margin: 20px 0;
+    text-align: center;
 }
 
-.key-system-checkpoint-panel h2 {
-    font-size: 1.8rem;
+/* Checkpoint Panel Title */
+.key-system .checkpoint-panel h2 {
+    font-size: 2rem;
     color: #fff;
+    margin-bottom: 10px;
 }
 
-.key-system-checkpoint-panel p {
-    font-size: 1.1rem;
+/* Checkpoint Panel Description */
+.key-system .checkpoint-panel p {
+    font-size: 1.2rem;
     color: #ccc;
     margin-bottom: 20px;
 }
 
-.key-system-btn {
-    padding: 12px 25px;
+/* Button Styling */
+.key-system .btn {
+    display: inline-block;
+    padding: 15px 30px;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
+    font-size: 1.2rem;
     border-radius: 10px;
     margin-top: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    width: 200px;
+    text-align: center;
 }
 
-.key-system-btn:hover {
+.key-system .btn:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
 
-/* Discord Button */
-.key-system-discord {
+.key-system .discord {
     position: fixed;
     top: 20px;
     right: 20px;
-    padding: 12px 25px;
+    padding: 15px 30px;
     background-color: #7289da;
     color: white;
-    font-size: 1.1rem;
+    font-size: 1.2rem;
+    border: none;
     border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.key-system .discord:hover {
+    background-color: #5b6e9d;
+    transform: scale(1.05);
+}
+
+/* Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+body.key-system {
+    animation: fadeIn 1s ease-in-out;
 }
