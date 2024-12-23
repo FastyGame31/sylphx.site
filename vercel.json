@@ -1,0 +1,8 @@
+{
+  "rewrites": [
+    {
+      "source": "/keysystem",
+      "destination": "/key-system.html"
+    }
+  ]
+}
