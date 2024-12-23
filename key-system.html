@@ -7,11 +7,16 @@
     <link rel="stylesheet" href="styles.css"> 
 </head>
 <body>
+    <!-- Discord Button -->
     <button class="discord" onclick="window.open('https://discord.gg/your-invite-link', '_blank')">Discord</button>
+
+    <!-- Header Section -->
     <div class="header">
         <h1>Sylph X</h1>
         <img src="https://i.imgur.com/lPUSD0y.png" alt="Sylph X Logo">
     </div>
+
+    <!-- Checkpoint Panel -->
     <div class="checkpoint-panel">
         <h2>Checkpoint 1</h2>
         <p>
@@ -20,5 +25,12 @@
         </p>
         <a href="next-checkpoint.html" class="btn">Next Checkpoint</a>
     </div>
+
+    <script>
+        // Timer to redirect after 5 minutes (300 seconds)
+        setTimeout(function() {
+            window.location.href = 'https://www.sylphx.site'; // Redirect to the main page
+        }, 300000); // 5 minutes in milliseconds
+    </script>
 </body>
 </html>
