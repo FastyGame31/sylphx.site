@@ -27,12 +27,9 @@
     </div>
 
     <script>
-        // Check if the page is being accessed directly or from the correct Linkvertise link
-        const referrer = document.referrer;
-        const expectedReferrer = 'https://linkvertise.com/114723/first-checkpoint?o=sharing';
-
-        if (referrer !== expectedReferrer) {
-            // Redirect to the main page if not coming from the expected Linkvertise link
+        // Check if the user came from Linkvertise by checking sessionStorage
+        if (!sessionStorage.getItem('cameFromLinkvertise')) {
+            // If not, redirect them to the main page
             window.location.replace('https://www.sylphx.site');
         }
 
@@ -46,6 +43,13 @@
             event.preventDefault(); // Cancel the default action
             window.location.replace('https://www.sylphx.site'); // Force redirect
         });
+
+        // When the user clicks on the Linkvertise link, set the sessionStorage item
+        window.onload = function() {
+            if (document.referrer.includes("linkvertise.com")) {
+                sessionStorage.setItem('cameFromLinkvertise', 'true');
+            }
+        };
     </script>
 </body>
 </html>
