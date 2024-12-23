@@ -26,11 +26,17 @@
         <a href="next-checkpoint.html" class="btn">Next Checkpoint</a>
     </div>
 
-   <script>
-    // Timer to redirect after 5 minutes (300 seconds)
-    setTimeout(function() {
-        window.location.replace('https://www.sylphx.site'); // Force redirect to the main page
-    }, 300000); // 5 minutes in milliseconds
-</script>
+    <script>
+        // Timer to redirect after 5 minutes (300 seconds)
+        setTimeout(function() {
+            window.location.replace('https://www.sylphx.site'); // Force redirect to the main page
+        }, 300000); // 5 minutes in milliseconds
+
+        // Ensure redirect even if the user refreshes or navigates away
+        window.addEventListener('beforeunload', function(event) {
+            event.preventDefault(); // Cancel the default action
+            window.location.replace('https://www.sylphx.site'); // Force redirect
+        });
+    </script>
 </body>
 </html>
