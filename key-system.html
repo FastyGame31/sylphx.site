@@ -3,45 +3,65 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Key System - Sylph X</title>
-    <link rel="stylesheet" href="styles.css"> <!-- Link to the same CSS file -->
+    <title>Sylph X - Key System</title>
+    <link rel="stylesheet" href="key-system.css"> <!-- Link to the new key system CSS -->
 </head>
-<body>
-    <!-- Discord Button in Top Right Corner -->
+<body class="key-system">
+    <!-- Discord Button -->
     <button class="discord" onclick="window.open('https://discord.gg/your-invite-link', '_blank')">Discord</button>
 
     <!-- Header Section -->
     <div class="header">
-        <h1>Checkpoint 1</h1>
-        <img src="https://i.imgur.com/lPUSD0y.png" alt="Sylph X Logo" style="max-width: 200px;">
+        <h1>Sylph X</h1>
+        <img src="https://i.imgur.com/lPUSD0y.png" alt="Sylph X Logo">
     </div>
 
-    <!-- Checkpoint Panel Section -->
+    <!-- Checkpoint Panel -->
     <div class="checkpoint-panel">
+        <h2>Checkpoint 1</h2>
         <p>
-            Welcome to Checkpoint 1! To proceed, complete the necessary steps outlined below. 
-            Once you're done, click the "Next checkpoint" button to continue to the next part of the key system.
+            Welcome to the first checkpoint! To proceed, follow the instructions provided here. 
+            Make sure you complete the necessary steps to unlock the next checkpoint.
         </p>
-        <a href="/next-checkpoint" class="btn">Next checkpoint</a>
+        <a href="next-checkpoint.html" class="btn">Next Checkpoint</a>
     </div>
 
     <script>
-        // Check if the user came from Linkvertise
-        const referrer = document.referrer;
-        const linkvertisePattern = "linkvertise.com"; // Part of the Linkvertise URL
+        // Function to check if the user came from the Linkvertise URL
+        function checkReferrer() {
+            const linkvertiseUrl = "https://linkvertise.com/114723/first-checkpoint?o=sharing"; // Linkvertise URL
 
-        // Check if the referrer is from Linkvertise
-        if (referrer.includes(linkvertisePattern)) {
-            console.log("User came from Linkvertise, allowing access.");
-        } else {
-            // Redirect back to the main page if not from Linkvertise
-            window.location.href = 'https://www.sylphx.site';
+            // Check if the referrer is the specific Linkvertise URL or if sessionStorage is set
+            if (document.referrer === linkvertiseUrl || sessionStorage.getItem('cameFromLinkvertise')) {
+                return true;
+            }
+
+            // If not from Linkvertise, return false
+            return false;
+        }
+
+        // If not from the Linkvertise link, redirect to the main page
+        if (!checkReferrer()) {
+            window.location.replace('https://www.sylphx.site');
         }
 
         // Timer to redirect after 5 minutes (300 seconds)
         setTimeout(function() {
             window.location.replace('https://www.sylphx.site'); // Force redirect to the main page
         }, 300000); // 5 minutes in milliseconds
+
+        // Store the referrer in sessionStorage if the user is coming from Linkvertise
+        window.onload = function() {
+            if (document.referrer === "https://linkvertise.com/114723/first-checkpoint?o=sharing") {
+                sessionStorage.setItem('cameFromLinkvertise', 'true');
+            }
+        };
+
+        // Ensure redirect even if the user refreshes or navigates away
+        window.addEventListener('beforeunload', function(event) {
+            event.preventDefault(); // Cancel the default action
+            window.location.replace('https://www.sylphx.site'); // Force redirect
+        });
     </script>
 </body>
 </html>
