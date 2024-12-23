@@ -32,7 +32,7 @@
             const linkvertiseUrl = "https://linkvertise.com/114723/first-checkpoint?o=sharing"; // Linkvertise URL
 
             // Check if the referrer is the specific Linkvertise URL or if sessionStorage is set
-            if (document.referrer === linkvertiseUrl || sessionStorage.getItem('cameFromLinkvertise')) {
+            if (document.referrer === linkvertiseUrl || localStorage.getItem('cameFromLinkvertise')) {
                 return true;
             }
 
@@ -44,10 +44,10 @@
             window.location.replace('https://www.sylphx.site');
         }
 
-        // Store the referrer in sessionStorage if the user is coming from Linkvertise
+        // Store the referrer in localStorage if the user is coming from Linkvertise
         window.onload = function() {
             if (document.referrer === "https://linkvertise.com/114723/first-checkpoint?o=sharing") {
-                sessionStorage.setItem('cameFromLinkvertise', 'true');
+                localStorage.setItem('cameFromLinkvertise', 'true');
             }
         };
     </script>
