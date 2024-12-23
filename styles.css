@@ -1,4 +1,4 @@
-
+/* General reset */
 * {
     margin: 0;
     padding: 0;
@@ -7,23 +7,14 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #1a1a1a; 
-    color: #fff; 
+    background-color: #1a1a1a; /* Dark background */
+    color: #fff; /* White text */
     text-align: center;
     height: 100vh;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-.container {
-    max-width: 800px;
-    width: 100%;
-    padding: 20px;
-    background-color: #111;
-    border-radius: 15px;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6);
-    position: relative;
 }
 
 /* Discord Button in the top-right corner */
@@ -34,63 +25,63 @@ body {
     padding: 10px 20px;
     font-size: 14px;
     color: #fff;
-    background-color: #7289da; 
+    background-color: #7289da; /* Discord blue */
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 .discord-button:hover {
-    background-color: #5b6eae; 
+    background-color: #5b6eae; /* Darker Discord blue on hover */
 }
 
 /* Header Section */
 header {
-    margin-bottom: 30px;
+    margin-bottom: 50px; /* Space between header and buttons */
+    text-align: center;
 }
 
 .title {
     font-size: 48px;
     font-weight: bold;
-    color: #00bcd4; 
+    color: #00bcd4; /* Cyan color for the title */
     text-transform: uppercase;
-    margin-left: 20px; 
-}
-
-/* Main Content Section */
-.content {
-    margin-top: 20px;
 }
 
 .description {
     font-size: 18px;
-    margin-bottom: 30px;
+    margin-top: 20px;
     line-height: 1.6;
-    color: #ccc; 
+    color: #ccc; /* Light gray for the description */
 }
 
+/* Main Content Section */
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50%; /* Ensures the buttons are centered vertically */
+}
 
 .panel {
     display: flex;
-    justify-content: center;
     gap: 20px;
-    margin-top: 20px;
 }
 
 .panel-button {
     padding: 15px 30px;
     font-size: 20px;
     color: #fff;
-    background-color: #007bff; 
+    background-color: #007bff; /* Blue color for the buttons */
     text-decoration: none;
     border-radius: 8px;
     transition: background-color 0.3s ease;
 }
 
 .panel-button:hover {
-    background-color: #0056b3; 
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
 .panel-button:active {
-    background-color: #004085; 
+    background-color: #004085; /* Even darker blue on click */
 }
