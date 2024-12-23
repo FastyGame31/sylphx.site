@@ -56,12 +56,6 @@
                 sessionStorage.setItem('cameFromLinkvertise', 'true');
             }
         };
-
-        // Ensure redirect even if the user refreshes or navigates away
-        window.addEventListener('beforeunload', function(event) {
-            event.preventDefault(); // Cancel the default action
-            window.location.replace('https://www.sylphx.site'); // Force redirect
-        });
     </script>
 </body>
 </html>
