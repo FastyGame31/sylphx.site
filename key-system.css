@@ -1,69 +1,101 @@
-/* General Styles */
-body {
-    font-family: Arial, sans-serif;
+/* Global Reset */
+* {
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
+    box-sizing: border-box;
+    font-family: Arial, sans-serif;
 }
 
-/* Header Styles */
-.header {
+/* Body */
+body {
+    background-color: #1e1e1e;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
     text-align: center;
-    margin-top: 20px;
+}
+
+/* Header */
+.header {
+    margin-bottom: 20px;
 }
 
 .header h1 {
-    font-size: 36px;
-    color: #333;
+    font-size: 3rem;
+    color: #fff;
+    margin-bottom: 10px;
 }
 
-/* Button Styles */
+.header img {
+    max-width: 200px;
+    margin-top: 10px;
+}
+
+/* Checkpoint Panel */
+.checkpoint-panel {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 20px;
+    border-radius: 10px;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.checkpoint-panel p {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+}
+
+/* Button Styling */
 .btn {
     display: inline-block;
     padding: 15px 30px;
-    margin: 10px;
     background-color: #4CAF50;
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    text-align: center;
+    font-size: 1.2rem;
+    border-radius: 10px;
+    margin-top: 10px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .btn:hover {
     background-color: #45a049;
+    transform: scale(1.05);
 }
 
-/* Discord Button Styles */
 .discord {
-    position: absolute;
+    position: fixed;
     top: 20px;
     right: 20px;
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: #7289da;
     color: white;
+    font-size: 1.2rem;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
 .discord:hover {
-    background-color: #5b6e9b;
+    background-color: #5b6e9d;
+    transform: scale(1.05);
 }
 
-/* Checkpoint Panel Styles */
-.checkpoint-panel {
-    width: 80%;
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 20px;
-    background-color: #fff;
-    border-radius: 10px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
-    text-align: center;
+/* Animation */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 
-.checkpoint-panel p {
-    font-size: 18px;
-    margin-bottom: 20px;
+body {
+    animation: fadeIn 1s ease-in-out;
 }
