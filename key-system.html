@@ -36,9 +36,11 @@
         // Check if the user came from Linkvertise
         const cameFromLinkvertise = getQueryParam('cameFromLinkvertise');
 
-        // If the user didn't come from Linkvertise, redirect to the main page
+        // If the user didn't come from Linkvertise, add a delay and then redirect to the main page
         if (cameFromLinkvertise !== 'true') {
-            window.location.replace('https://www.sylphx.site');
+            setTimeout(function() {
+                window.location.replace('https://www.sylphx.site');
+            }, 2000); // 2000 milliseconds = 2 seconds delay
         }
     </script>
 </body>
